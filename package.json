@@ -1,0 +1,13 @@
+{
+  "name": "todo-list-ignite-api",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "Ingrid Soto",
+  "description": "Desfio: API TO DO List - Ignite NodeJS ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "license": "ISC"
+}

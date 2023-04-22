@@ -15,15 +15,21 @@ export class Database {
     fs.writeFile(databasePath, JSON.stringify(this.#database));
   }
 
-  select(table, search) {
+  select(table, search, id) {
     let data = this.#database[table] ?? [];
 
     if (search) {
       data = data.filter((row) => {
         return Object.entries(search).some(([key, value]) => {
+          if (!value) return true;
+
           return row[key].toLowerCase().includes(value.toLowerCase());
         });
       });
+    }
+
+    if (id) {
+      data = data.filter((row) => row.id === id);
     }
 
     return data;

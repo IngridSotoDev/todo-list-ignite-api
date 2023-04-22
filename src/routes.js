@@ -70,15 +70,12 @@ export const routes = [
           .writeHead(404)
           .end(JSON.stringify({ message: "task not found!" }));
 
-      if (!title)
+      if (!title || !description)
         return res
           .writeHead(400)
-          .end(JSON.stringify({ message: "title is required!" }));
-
-      if (!description)
-        return res
-          .writeHead(400)
-          .end(JSON.stringify({ message: "description is required!" }));
+          .end(
+            JSON.stringify({ message: "title or description are required!" })
+          );
 
       database.update("tasks", id, {
         title,

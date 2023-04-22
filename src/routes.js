@@ -51,7 +51,9 @@ export const routes = [
 
       database.insert("tasks", task);
 
-      return res.writeHead(201).end();
+      return res
+        .writeHead(201)
+        .end(JSON.stringify({ message: "successfully created!" }));
     },
   },
   {
